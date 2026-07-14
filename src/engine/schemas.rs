@@ -1,8 +1,10 @@
+#[derive(Clone, Copy)]
 pub enum OrderSide {
     // Buy | Sell
     Buy,
     Sell,
 }
+#[derive(Clone, Copy)]
 pub enum OrderType {
     // Limit | Market
     Market,
@@ -15,13 +17,19 @@ pub struct Balance {
     pub available: f32,
 }
 
+pub struct StockCurrency {
+    // pub stock_id: u32,
+    pub base_currency: String,  // Ex: BTC
+    pub quote_currency: String, // USD
+}
+
 pub struct Order {
     // One single order
     pub order_id: u32,
     pub user_id: u32,
     pub quantity: f32,
     pub price: f32,
-    pub stock: Option<u32>,
+    pub stock: u32,
     pub filled_quantity: f32,
     pub order_type: OrderType,
     pub order_side: OrderSide,
