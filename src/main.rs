@@ -1,3 +1,6 @@
+mod engine;
+// mod schemas;
+
 fn main() {
-    println!("Hello, world!");
+    println!("CEX engine starting...");
 }
