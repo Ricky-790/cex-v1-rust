@@ -1,4 +1,4 @@
 pub mod engine;
 pub use engine::*;
-mod schemas;
+pub mod schemas;
 pub use schemas::*;

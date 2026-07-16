@@ -1,16 +1,18 @@
-#[derive(Clone, Copy)]
+use serde::{Deserialize, Serialize};
+
+#[derive(Clone, Copy, Serialize, Deserialize)]
 pub enum OrderSide {
     // Buy | Sell
     Buy,
     Sell,
 }
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Serialize, Deserialize)]
 pub enum OrderType {
     // Limit | Market
     Market,
     Limit,
 }
-
+#[derive(Serialize, Deserialize)]
 pub struct Balance {
     pub currency: String,
     pub locked: f32,
@@ -22,6 +24,7 @@ pub struct StockCurrency {
     pub base_currency: String,  // Ex: BTC
     pub quote_currency: String, // USD
 }
+#[derive(Serialize, Deserialize)]
 
 pub struct Order {
     // One single order
@@ -34,6 +37,7 @@ pub struct Order {
     pub order_type: OrderType,
     pub order_side: OrderSide,
 }
+#[derive(Serialize, Deserialize)]
 
 pub struct OrderBook {
     pub bids: Vec<Order>,

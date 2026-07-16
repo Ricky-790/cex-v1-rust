@@ -8,22 +8,6 @@ pub struct Engine {
     pub users_balances: HashMap<u32, Vec<Balance>>, // User-id : All Balances
 }
 
-/*
-Functions:
-- Add order
-- Match order (find best matches)
-- fill order
-- remove order
-- cancel order
-
-Helper Funcs:
-- get balance
-- Add bid
-- Add ask
-- Find user(in memory db)
-- Find stock(in memory db)
-*/
-
 impl Engine {
     pub fn new() -> Engine {
         Engine {
@@ -389,7 +373,7 @@ mod tests {
         // sells 1 BTC, so locks 1.0 BTC not 300.0
         assert_eq!(get_locked(&engine, 1, "BTC"), 1.0);
         assert_eq!(get_available(&engine, 1, "BTC"), 1.0); // had 2.0, sold 1.0
-        // Note: you may want to add a minimum balance check to prevent negative available
+                                                           // Note: you may want to add a minimum balance check to prevent negative available
     }
 
     #[test]
